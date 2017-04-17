@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from booksite.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^hello/$', hello),
+    url(r'now/$', current_datetime),
+    url(r'now/minus/(\d{1,2})$', hours_behind),
+    url(r'now/plus/(\d{1,2})$', hours_ahead),
+    url(r'meta/$', display_meta)
 ]
